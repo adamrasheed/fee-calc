@@ -1,32 +1,255 @@
-.App {
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+footer,
+header,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+summary,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+body {
+  line-height: 1;
+}
+ol,
+ul {
+  list-style: none;
+}
+blockquote,
+q {
+  quotes: none;
+}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+:root {
+  --color-text: #333;
+  --color-light-gray: rgba(0, 0, 0, 0.25);
+  --color-gray: rgba(0, 0, 0, 0.5);
+  --color-primary: tomato;
+}
+
+html,
+body {
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--color-text);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3 {
+  font-family: -apple-system-headline, BlinkMacSystemFont, sans-serif;
+  font-weight: 800;
+}
+
+.app {
+  padding: 1rem;
+}
+
+.app-title {
   text-align: center;
+  font-size: 2rem;
+  line-height: 1;
+  margin-bottom: 1rem;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+.form {
+  max-width: 360px;
+  margin: 1rem auto;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+.form__label {
+  font-size: 0.75rem;
+  font-family: -apple-system-caption1, BlinkMacSystemFont, sans-serif;
+  font-weight: 600;
+  line-height: 1;
+  display: block;
+  font-variant-caps: all-small-caps;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.25rem;
+}
+
+.form__input {
+  display: block;
+  width: 100%;
+  font-size: 1rem;
+  line-height: 1;
+  padding: 0.5rem;
+  border: none;
+  box-shadow: inset 0 0 0 1px var(--color-light-gray);
+  position: relative;
+}
+
+.dollar-sign {
+  position: absolute;
+  z-index: 2;
+  top: 2rem;
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.form__input:focus {
+  outline: 0;
+  box-shadow: inset 0 0 0 1px var(--color-gray);
+}
+
+.form__submit {
+  background-image: linear-gradient(
+    to right,
+    #4cb8c4 0%,
+    #3cd3ad 51%,
+    #4cb8c4 100%
+  );
+  border: none;
   color: white;
+  width: 100%;
+  max-width: 360px;
+  padding: 0.5rem;
+  font-size: 1rem;
+  line-height: 1;
+  font-weight: 600;
+  font-variant-caps: all-small-caps;
+  margin: 0.5rem 0;
+  cursor: pointer;
+}
+.form__submit:hover,
+.form__submit:focus {
+  outline: 0;
+  background-position: right center;
 }
 
-.App-link {
-  color: #61dafb;
+.total-amount {
+  text-align: center;
+  margin: 2rem auto;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.total-amount p {
+  line-height: 1;
+  margin-bottom: 1rem;
+}
+
+span.amount {
+  background: #3cd3ad;
+  padding: 3px 5px;
+  color: white;
+  text-shadow: 0 0.5px 0 rgba(0, 0, 0, 0.25);
+  font-size: 1.25rem;
+  font-weight: 500;
+}
+
+span.amount-fee {
+  font-weight: 600;
 }

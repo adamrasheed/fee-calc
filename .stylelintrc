@@ -1,0 +1,29 @@
+{
+    "extends": "stylelint-config-standard",
+    "rules": {
+        "indentation": "tab",
+        "string-quotes": "double",
+        "no-duplicate-selectors": true,
+        "color-hex-case": "lower",
+        "color-hex-length": "long",
+        "selector-no-id": true,
+        "selector-combinator-space-after": "always",
+        "selector-attribute-quotes": "always",
+        "selector-attribute-operator-space-before": "always",
+        "selector-attribute-operator-space-after": "always",
+        "selector-attribute-brackets-space-inside": "always",
+        "declaration-block-trailing-semicolon": "always",
+        "declaration-colon-space-before": "always",
+        "declaration-colon-space-after": "always",
+        "number-leading-zero": "always",
+        "function-url-quotes": "always",
+        "font-weight-notation": "numeric",
+        "font-family-name-quotes": "always-where-recommended",
+        "comment-whitespace-inside": "always",
+        "rule-empty-line-before": "always-multi-line",
+        "media-feature-range-operator-space-before": "always",
+        "media-feature-range-operator-space-after": "always",
+        "media-feature-colon-space-before": "always",
+        "media-feature-colon-space-after": "always"
+    }
+}
