@@ -6,9 +6,8 @@ class Form extends Component {
     return (
       <form className="form" action="" onSubmit={calculateAmount}>
         <label htmlFor="amountInput" className="form__label">
-          Amount
+          Amount ($)
         </label>
-        <span className="dollar-sign">$</span>
         <input
           type="number"
           className="form__input"
