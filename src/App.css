@@ -132,6 +132,7 @@ table {
   --color-text: #333;
   --color-light-gray: rgba(0, 0, 0, 0.25);
   --color-gray: rgba(0, 0, 0, 0.5);
+  --color-freshbooks-blue: #0080e0;
   --color-primary: tomato;
   --border-radius: 4px;
 }
@@ -310,13 +311,13 @@ span.amount-fee {
   margin: auto auto 0;
   font-weight: 400;
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24),
-    inset 0 3px 0 0 #0080e0;
+    inset 0 3px 0 0 var(--color-freshbooks-blue);
   border-radius: 4px;
 }
 
 .freshbooks-link__title {
   margin: 0.5 0 0;
-  padding: 0;
+  padding: 0 1rem;
   line-height: 1.25;
   max-width: 16rem;
 }
@@ -338,14 +339,42 @@ span.amount-fee {
 
 .freshbooks-logo {
   display: block;
-  margin: 0.75rem auto;
+  margin: 0 auto;
   width: fit-content;
 }
 
 .freshbooks-logo img {
   display: block;
   max-width: 7rem;
-  margin: 1rem auto 1.5rem;
+  margin: 0 auto 1rem;
+}
+
+.button {
+  display: block;
+  background: var(--color-freshbooks-blue);
+  color: white;
+  text-transform: uppercase;
+  text-align: center;
+  font-size: 0.75rem;
+  line-height: 1;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+  text-decoration: none;
+  padding: 0.5em;
+  margin: 0.5rem auto;
+  border-radius: var(--border-radius);
+  transition: all 0.15s ease-in-out;
+}
+
+.freshbooks-link__cta {
+  width: fit-content;
+  padding: 0.75em 1.875em;
+}
+
+.freshbooks-link__cta:hover,
+.freshbooks-link__cta:focus {
+  outline: 0;
+  opacity: 0.95;
 }
 
 /* --------------------------------- */
@@ -367,4 +396,14 @@ span.amount-fee {
   background: none;
   border: none;
   cursor: pointer;
+}
+
+/* SITE CREDIT */
+.site-credit {
+  font-size: 0.75rem;
+  text-align: center;
+  margin: 1rem 0 0.5rem;
+}
+.site-credit a {
+  color: var(--color-text);
 }

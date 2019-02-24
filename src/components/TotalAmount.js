@@ -1,7 +1,9 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
+import { numberWithCommas } from "../utils/functions";
 class TotalAmmount extends Component {
   remainingAmount = (original, cut) => {
-    return (original - cut).toFixed(2);
+    return numberWithCommas((original - cut).toFixed(2));
   };
   componentDidMount() {}
   render() {
@@ -25,5 +27,10 @@ class TotalAmmount extends Component {
     );
   }
 }
+
+TotalAmmount.propTypes = {
+  originalAmount: PropTypes.number,
+  freshbooksCut: PropTypes.number
+};
 
 export default TotalAmmount;

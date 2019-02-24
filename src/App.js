@@ -15,30 +15,33 @@ class App extends Component {
   };
 
   handleInput = ({ target: { value } }) => {
-    const freshbooksCut = this.freshbooksCut(value);
-    this.setState({ originalAmount: value, freshbooksCut, submit: null });
+    const valueNumber = Number(value);
+    const freshbooksCut = Number(this.freshbooksCut(value));
+    this.setState({ originalAmount: valueNumber, freshbooksCut, submit: null });
   };
 
   calculateAmount = () => {
     event.preventDefault();
-    console.log("submitted form");
     const { originalAmount } = this.state;
     const amountNumber = Number(originalAmount);
-
     console.log(amountNumber);
 
     if (amountNumber && amountNumber > 0) {
       this.setState({
-        freshbooksCut: this.freshbooksCut(this.state.originalAmount),
+        freshbooksCut: this.freshbooksCut(amountNumber),
         submit: `success`
       });
     } else {
-      this.setState({ submit: "error", originalAmount: ``, freshbooksCut: `` });
+      this.setState({
+        submit: "error",
+        originalAmount: ``,
+        freshbooksCut: ``
+      });
     }
   };
 
   freshbooksCut = amount => {
-    const freshbooksCut = (amount * 0.029 + 0.3).toFixed(2);
+    const freshbooksCut = Number((amount * 0.029 + 0.3).toFixed(2));
     return freshbooksCut;
   };
 
@@ -66,8 +69,11 @@ class App extends Component {
             Please enter a valid value
           </p>
         )}
-        <HowItWorks />
-        <AffiliateLink link="/" />
+        {/*<HowItWorks />*/}
+        <AffiliateLink link="https://www.shareasale.com/r.cfm?u=1246035&m=52946&b=593723" />
+        <p className="site-credit">
+          Site by <a href="https://adamrasheed.com">Adam Rasheed</a>
+        </p>
       </div>
     );
   }
