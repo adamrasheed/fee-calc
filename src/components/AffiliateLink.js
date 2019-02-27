@@ -1,7 +1,7 @@
 import React from "react";
 import Logo from "../freshbooks-logo.png";
 
-const AffiliateLink = ({ link }) => {
+const AffiliateLink = ({ link, affilateOpen, affiliateToggle }) => {
   return (
     <div className="freshbooks-link">
       <a
@@ -12,7 +12,10 @@ const AffiliateLink = ({ link }) => {
       >
         <img src={Logo} alt={link} />
       </a>
-      <p className="freshbooks-link__title center" style={{ margin: `0` }}>
+      <p
+        className="freshbooks-link__title center"
+        style={{ margin: `0 auto 1rem` }}
+      >
         Get{" "}
         <a href={link} target="_blank" rel="noopener noreferrer">
           Freshbooks
@@ -28,7 +31,19 @@ const AffiliateLink = ({ link }) => {
         {" "}
         Get a FREE Trial
       </a>
-      <p className="freshbooks-link__disclaimer small center">Affiliate Link</p>
+      <button
+        onClick={affiliateToggle}
+        className="freshbooks-link__disclaimer small center"
+      >
+        Affiliate Disclosure
+      </button>
+      {affilateOpen && (
+        <p className="affiliate-disclosure">
+          The FreshBooks button above is an affilate link, which means that if
+          you sign up for a freetrial and/or a paid subscription I might receive
+          some money at no additional cost to you.
+        </p>
+      )}
     </div>
   );
 };

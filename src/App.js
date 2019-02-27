@@ -10,7 +10,8 @@ class App extends Component {
   state = {
     originalAmount: ``,
     freshbooksCut: ``,
-    submit: null
+    submit: null,
+    affiliateOpen: false
   };
 
   handleInput = ({ target: { value } }) => {
@@ -44,6 +45,10 @@ class App extends Component {
     return freshbooksCut;
   };
 
+  affiliateToggle = () => {
+    this.setState({ affiliateOpen: !this.state.affiliateOpen });
+  };
+
   render() {
     return (
       <div className="app">
@@ -69,7 +74,11 @@ class App extends Component {
           </p>
         )}
         {/*<HowItWorks />*/}
-        <AffiliateLink link="https://www.shareasale.com/r.cfm?u=1246035&m=52946&b=593723" />
+        <AffiliateLink
+          affilateOpen={this.state.affiliateOpen}
+          affiliateToggle={this.affiliateToggle}
+          link="https://www.shareasale.com/r.cfm?u=1246035&m=52946&b=593723"
+        />
         <p className="site-credit">
           Site by <a href="https://adamrasheed.com">Adam Rasheed</a>
         </p>

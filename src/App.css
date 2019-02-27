@@ -316,7 +316,7 @@ span.amount-fee {
 }
 
 .freshbooks-link__title {
-  margin: 0.5 0 0;
+  margin: 0.5 auto 0;
   padding: 0 1rem;
   line-height: 1.25;
   max-width: 16rem;
@@ -333,8 +333,22 @@ span.amount-fee {
 }
 
 .freshbooks-link__disclaimer {
+  cursor: pointer;
+  padding: 0.5em 1em;
+  display: block;
+  font-size: 0.75rem;
+  line-height: 1;
+  border: none;
+  background: none;
+  width: fit-content;
+  margin: 1rem auto 0.5rem;
   opacity: 0.85;
   letter-spacing: 0.025em;
+}
+
+.freshbooks-link__disclaimer:focus {
+  outline: 0;
+  background: rgba(0, 0, 0, 0.04);
 }
 
 .freshbooks-logo {
@@ -375,6 +389,14 @@ span.amount-fee {
 .freshbooks-link__cta:focus {
   outline: 0;
   opacity: 0.95;
+}
+
+.affiliate-disclosure {
+  font-size: 0.75rem;
+  line-height: 1.25;
+  max-width: 20rem;
+  margin: 0 auto;
+  text-align: center;
 }
 
 /* --------------------------------- */
