@@ -28,9 +28,7 @@ const AffiliateLink = ({ link }) => {
         {" "}
         Get a FREE Trial
       </a>
-      <p className="freshbooks-link__disclaimer small center">
-        Not affiliated with Freshbooks
-      </p>
+      <p className="freshbooks-link__disclaimer small center">Affiliate Link</p>
     </div>
   );
 };
