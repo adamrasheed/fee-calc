@@ -9,7 +9,8 @@ class Form extends Component {
           Amount ($)
         </label>
         <input
-          type="number"
+          type="text"
+          pattern="[0-9]*"
           className="form__input"
           id="amountInput"
           placeholder="1,200.00"

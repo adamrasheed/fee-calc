@@ -17,7 +17,7 @@ const AffiliateLink = ({ link }) => {
         <a href={link} target="_blank" rel="noopener noreferrer">
           Freshbooks
         </a>{" "}
-        and make invoicing a breeze. Get a Free trial today.
+        and make invoicing a breeze. Sign up for Free trial today.
       </p>
       <a
         href={link}
@@ -26,7 +26,7 @@ const AffiliateLink = ({ link }) => {
         className="btn button freshbooks-link__cta center"
       >
         {" "}
-        Get a FREE Trial!
+        Get a FREE Trial
       </a>
       <p className="freshbooks-link__disclaimer small center">
         Not affiliated with Freshbooks

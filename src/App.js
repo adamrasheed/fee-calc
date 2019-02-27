@@ -2,10 +2,9 @@
 import React, { Component } from "react";
 import "./App.css";
 import Form from "./components/Form";
-import { numberWithCommas } from "./utils/functions";
 import TotalAmmount from "./components/TotalAmount";
 import AffiliateLink from "./components/AffiliateLink";
-import HowItWorks from "./components/HowItWorks";
+// import HowItWorks from "./components/HowItWorks";
 
 class App extends Component {
   state = {
@@ -15,7 +14,7 @@ class App extends Component {
   };
 
   handleInput = ({ target: { value } }) => {
-    const valueNumber = Number(value);
+    const valueNumber = Number(value) > 0 ? Number(value) : ``;
     const freshbooksCut = Number(this.freshbooksCut(value));
     this.setState({ originalAmount: valueNumber, freshbooksCut, submit: null });
   };
@@ -41,7 +40,7 @@ class App extends Component {
   };
 
   freshbooksCut = amount => {
-    const freshbooksCut = Number((amount * 0.029 + 0.3).toFixed(2));
+    const freshbooksCut = Number(amount * 0.029 + 0.3).toFixed(2);
     return freshbooksCut;
   };
 
