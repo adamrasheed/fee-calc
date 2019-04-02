@@ -4,6 +4,7 @@ import "./App.css";
 import Form from "./components/Form";
 import TotalAmmount from "./components/TotalAmount";
 import AffiliateLink from "./components/AffiliateLink";
+import SuggestedAmount from "./components/SuggestedAmount";
 // import HowItWorks from "./components/HowItWorks";
 
 class App extends Component {
@@ -45,6 +46,10 @@ class App extends Component {
     return freshbooksCut;
   };
 
+  reverseCut = amount => {
+    return Number(amount / 0.971 + 0.3).toFixed(2);
+  };
+
   affiliateToggle = () => {
     this.setState({ affiliateOpen: !this.state.affiliateOpen });
   };
@@ -66,6 +71,13 @@ class App extends Component {
           <TotalAmmount
             freshbooksCut={this.state.freshbooksCut}
             originalAmount={this.state.originalAmount}
+          />
+        )}
+        {this.state.submit === `success` && (
+          <SuggestedAmount
+            freshbooksCut={this.state.freshbooksCut}
+            originalAmount={this.state.originalAmount}
+            reverseCut={this.reverseCut}
           />
         )}
         {this.state.submit === "error" && (

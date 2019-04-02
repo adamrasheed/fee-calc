@@ -5,7 +5,6 @@ class TotalAmmount extends Component {
   remainingAmount = (original, cut) => {
     return numberWithCommas((original - cut).toFixed(2));
   };
-  componentDidMount() {}
   render() {
     const { originalAmount, freshbooksCut } = this.props;
 

@@ -135,6 +135,8 @@ table {
   --color-freshbooks-blue: #0080e0;
   --color-primary: tomato;
   --border-radius: 4px;
+  --container-size: 360px;
+  --container-size-large: 480px;
 }
 
 html,
@@ -278,6 +280,19 @@ input[type="number"]::-webkit-outer-spin-button {
   margin-bottom: 1rem;
 }
 
+.suggested-amount {
+  margin: 0 auto 4rem;
+  max-width: var(--container-size-large);
+  text-align: center;
+}
+.suggested-amount__title {
+  font-weight: 700;
+}
+
+.suggested-amount__amount {
+  font-size: 1.5rem;
+}
+
 span.amount {
   background: #3cd3ad;
   padding: 3px 5px;
@@ -285,6 +300,10 @@ span.amount {
   text-shadow: 0 0.5px 0 rgba(0, 0, 0, 0.25);
   font-size: 1.25rem;
   font-weight: 500;
+}
+
+.amount.amount--large {
+  font-size: 1.5rem;
 }
 
 span.amount-fee {
