@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import NumberFormat from 'react-number-format';
 
 class Form extends Component {
   render() {
@@ -8,15 +9,12 @@ class Form extends Component {
         <label htmlFor="amountInput" className="form__label">
           Amount ($)
         </label>
-        <input
-          type="text"
-          pattern="[0-9]*"
+        <NumberFormat thousandSeparator={true}
+          prefix="$"
           className="form__input"
           id="amountInput"
-          placeholder="1,200.00"
-          onChange={handleInput}
-          value={amountValue}
-        />
+          onValueChange={handleInput}
+          value={amountValue} />
         <button className="form__submit" type="submit">
           Calculate Fees
         </button>

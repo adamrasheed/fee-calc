@@ -2,30 +2,27 @@
 import React, { Component } from "react";
 import "./App.css";
 import Form from "./components/Form";
-import TotalAmmount from "./components/TotalAmount";
+import TotalAmount from "./components/TotalAmount";
 import AffiliateLink from "./components/AffiliateLink";
 import SuggestedAmount from "./components/SuggestedAmount";
-// import HowItWorks from "./components/HowItWorks";
 
 class App extends Component {
   state = {
-    originalAmount: ``,
-    freshbooksCut: ``,
+    originalAmount: null,
+    freshbooksCut: 0,
     submit: null,
     affiliateOpen: false
   };
 
-  handleInput = ({ target: { value } }) => {
-    const valueNumber = Number(value) > 0 ? Number(value) : ``;
-    const freshbooksCut = Number(this.freshbooksCut(value));
-    this.setState({ originalAmount: valueNumber, freshbooksCut, submit: null });
+  handleInput = ({formattedValue, value, floatValue}) => {
+    const freshbooksCut = Number(this.freshbooksCut(floatValue));
+    this.setState({ originalAmount: floatValue, freshbooksCut, submit: null });
   };
 
   calculateAmount = () => {
     event.preventDefault();
     const { originalAmount } = this.state;
     const amountNumber = Number(originalAmount);
-    console.log(amountNumber);
 
     if (amountNumber && amountNumber > 0) {
       this.setState({
@@ -35,15 +32,18 @@ class App extends Component {
     } else {
       this.setState({
         submit: "error",
-        originalAmount: ``,
-        freshbooksCut: ``
+        originalAmount: 0,
+        freshbooksCut: 0
       });
     }
   };
 
   freshbooksCut = amount => {
-    const freshbooksCut = Number(amount * 0.029 + 0.3).toFixed(2);
-    return freshbooksCut;
+    if (typeof amount == 'number') {
+      return Number((amount * 0.029 + 0.3).toFixed(2));
+    } else {
+      return Number((parseFloat(amount) * 0.029 + 0.3).toFixed(2));
+    }
   };
 
   reverseCut = amount => {
@@ -68,7 +68,7 @@ class App extends Component {
           amountValue={this.state.originalAmount}
         />
         {this.state.submit === `success` && (
-          <TotalAmmount
+          <TotalAmount
             freshbooksCut={this.state.freshbooksCut}
             originalAmount={this.state.originalAmount}
           />
