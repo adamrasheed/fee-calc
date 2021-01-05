@@ -1,7 +1,15 @@
 import React from "react";
 import Logo from "../freshbooks-logo.png";
 
-const AffiliateLink = ({ link, affilateOpen, affiliateToggle }) => {
+const affLink = 'https://www.shareasale.com/r.cfm?u=1246035&m=52946&b=593723'
+
+type AffiliateLinkProps = {
+  link?: string;
+  isAffiliateOpen: boolean;
+  toggleAffiliate: () => void
+}
+
+function AffiliateLink ({ link = affLink, isAffiliateOpen, toggleAffiliate}: AffiliateLinkProps) {
   return (
     <div className="freshbooks-link">
       <a
@@ -32,12 +40,12 @@ const AffiliateLink = ({ link, affilateOpen, affiliateToggle }) => {
         Get a FREE Trial
       </a>
       <button
-        onClick={affiliateToggle}
+        onClick={toggleAffiliate}
         className="freshbooks-link__disclaimer small center"
       >
         Affiliate Disclosure
       </button>
-      {affilateOpen && (
+      {isAffiliateOpen && (
         <p className="affiliate-disclosure">
           The FreshBooks button above is an affilate link, which means that if
           you sign up for a freetrial and/or a paid subscription I might receive
@@ -45,7 +53,7 @@ const AffiliateLink = ({ link, affilateOpen, affiliateToggle }) => {
         </p>
       )}
     </div>
-  );
-};
+  )
+}
 
 export default AffiliateLink;

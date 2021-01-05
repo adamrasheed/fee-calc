@@ -1,4 +1,4 @@
-You can see hte project live here: [Invoice Free](https://invoicefee.app/).
+You can see the project live here: [Invoice Free](https://invoicefee.app/).
 
 ## Tech used:
 
