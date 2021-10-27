@@ -10,7 +10,7 @@ const HowItWorks = () => {
       <ul>
         <li>A Quick way to invoice your clients</li>
         <li>Late invoice reminders</li>
-        <li>Accountign reports that make tax-time infinitely more bearable</li>
+        <li>Accounting reports that make tax-time infinitely more bearable</li>
       </ul>
     </div>
   );
