@@ -7,21 +7,7 @@ import SuggestedAmount from "./components/SuggestedAmount";
 import "./App.css";
 import { NumberFormatValues } from "react-number-format";
 
-interface IState {
-  originalAmount: number | null;
-  freshbooksCut: number | null;
-  submit: "success" | "error" | null;
-  affiliateOpen: boolean;
-}
-
-const initState: IState = {
-  originalAmount: null,
-  freshbooksCut: 0,
-  submit: null,
-  affiliateOpen: false,
-};
-
-export type ReverseCutType = (amount: number | null) => number;
+export type TReverseCut = (amount: number | null) => number;
 
 function App() {
   const [isAffiliateOpen, setIsAffiliateOpen] = useState(false);
@@ -39,7 +25,7 @@ function App() {
     setSubmit(null);
   }
 
-  function handleFreshbooksCut(amount: string | number) {
+  function handleFreshbooksCut(amount: string | number): number {
     if (typeof amount == "number") {
       return Number((amount * 0.029 + 0.3).toFixed(2));
     } else {
@@ -47,10 +33,10 @@ function App() {
     }
   }
 
-  function reverseCut(amount: number | null): number {
+  const reverseCut: TReverseCut = (amount: number | null) => {
     const newAmount = (Number(amount) / 0.971 + 0.3).toFixed(2);
     return Number(newAmount);
-  }
+  };
 
   function toggleAffiliate() {
     setIsAffiliateOpen(!isAffiliateOpen);

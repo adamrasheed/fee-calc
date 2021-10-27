@@ -1,14 +1,17 @@
 import React from "react";
-import { ReverseCutType } from "../App";
+import { TReverseCut } from "../App";
 import { numberWithCommas } from "../utils/functions";
 
 type SuggestedAmountsProps = {
   originalAmount: number | null;
-  reverseCut: ReverseCutType;
-}
-function SuggestedAmount({originalAmount, reverseCut}: SuggestedAmountsProps) {
+  reverseCut: TReverseCut;
+};
+function SuggestedAmount({
+  originalAmount,
+  reverseCut,
+}: SuggestedAmountsProps) {
   return (
-  <div className="suggested-amount">
+    <div className="suggested-amount">
       <p className="suggested-amount__title">
         Want to make ${numberWithCommas(originalAmount)} after fees?{" "}
       </p>
@@ -19,7 +22,7 @@ function SuggestedAmount({originalAmount, reverseCut}: SuggestedAmountsProps) {
         </span>
       </p>
     </div>
-  )
+  );
 }
 
 export default SuggestedAmount;
