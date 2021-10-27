@@ -1,11 +1,11 @@
 import React from "react";
-import NumberFormat from 'react-number-format';
+import NumberFormat, { NumberFormatValues } from "react-number-format";
 
 type FormProps = {
   calculateAmount: any;
-  handleInput: any;
-  amountValue : any;
-}
+  handleInput: (values: NumberFormatValues) => void;
+  amountValue: any;
+};
 
 function Form({ calculateAmount, handleInput, amountValue }: FormProps) {
   return (
@@ -13,12 +13,14 @@ function Form({ calculateAmount, handleInput, amountValue }: FormProps) {
       <label htmlFor="amountInput" className="form__label">
         Amount ($)
       </label>
-      <NumberFormat thousandSeparator={true}
+      <NumberFormat
+        thousandSeparator={true}
         prefix="$"
         className="form__input"
         id="amountInput"
         onValueChange={handleInput}
-        value={amountValue} />
+        value={amountValue}
+      />
       <button className="form__submit" type="submit">
         Calculate Fees
       </button>

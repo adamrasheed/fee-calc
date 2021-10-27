@@ -2,14 +2,18 @@ import React from "react";
 import { numberWithCommas } from "../utils/functions";
 
 type TotalAmountProps = {
-  originalAmount?: number;
-  freshbooksCut?: number;
-}
+  originalAmount: number | null;
+  freshbooksCut: number | null;
+};
 
-function TotalAmount ({originalAmount, freshbooksCut}: TotalAmountProps) {
-  function getRemainingAmount (original, cut): number {
-    return numberWithCommas((original - cut).toFixed(2));
-  };
+function TotalAmount({ originalAmount = 0, freshbooksCut }: TotalAmountProps) {
+  function getRemainingAmount(
+    original: number | null,
+    cut: number | null
+  ): string {
+    const remainder = Number(original) - Number(cut);
+    return numberWithCommas(Number(remainder.toFixed(2)));
+  }
   return (
     <div className="total-amount">
       <p className="total-amount__received">
@@ -21,10 +25,11 @@ function TotalAmount ({originalAmount, freshbooksCut}: TotalAmountProps) {
       </p>
       <p className="total-amount__freshbooks">
         Freshbooks will take{" "}
-        <span className="amount-fee">${freshbooksCut} </span> for providing their services.
+        <span className="amount-fee">${freshbooksCut} </span> for providing
+        their services.
       </p>
     </div>
-  )
+  );
 }
 
 export default TotalAmount;
